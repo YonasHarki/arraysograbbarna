@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      function minMax(array) {
+        if (array.length === 0) {
+          console.log("The array is empty");
+          return;
+        }
+
+        let nums = {
+          min: array[0],
+          max: array[0],
+        };
+        for (let i = 0; i < array.length; i++) {
+          for (let j = 0; j < array.length; j++) {
+            if (array[i] > array[j]) {
+              nums.max = array[i];
+            } else if (array[i] < array[j]) {
+              nums.min = array[i];
+            }
+          }
+        }
+        if (nums.min === nums.max) {
+          console.log(
+            `The list only contains one number, the number ${nums.min}`
+          );
+        }
+        return nums;
+      }
+      console.log(minMax([2]));
+
+      function countWords(array) {
+        let words = {};
+        for (let i = 0; i < array.length; i++) {
+          if (words[array[i]] === undefined) {
+            words[array[i]] = 1;
+          } else {
+            words[array[i]]++;
+          }
+        }
+        return words;
+      }
+      console.log(countWords(["apple", "apple", "grape"]));
+
+      function searchForSearch(array) {
+        for (let i = 0; i < array.length; i++) {
+          if (array[i] === "search") {
+            return i;
+          }
+        }
+        return -1;
+      }
+    </script>
+  </body>
+</html>
